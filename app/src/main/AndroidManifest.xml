@@ -12,7 +12,10 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.Softwaredesignproject2android">
         <activity
-                android:name=".MainActivity1"
+                android:name=".SignUpActivity"
+                android:exported="false" />
+        <activity
+                android:name=".LoginActivity"
                 android:exported="false" />
         <activity
                 android:name=".MainActivity"

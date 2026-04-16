@@ -5,9 +5,26 @@
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        tools:context=".LoginActivity">
+
+    <Button
+            android:id="@+id/loginBtn2"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="105dp"
+            android:layout_marginTop="552dp"
+            android:layout_marginEnd="106dp"
+            android:layout_marginBottom="79dp"
+            android:backgroundTint="@color/dark_blue"
+            android:text="@string/l_but"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+            android:id="@+id/textView"
             android:layout_width="217dp"
             android:layout_height="52dp"
             android:gravity="center"
@@ -24,7 +41,7 @@
             tools:ignore="TextSizeCheck" />
 
     <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/textView3"
             android:layout_width="217dp"
             android:layout_height="52dp"
             android:gravity="center"
@@ -41,50 +58,51 @@
             tools:ignore="TextSizeCheck" />
 
     <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/imageView2"
             android:layout_width="304dp"
             android:layout_height="151dp"
             android:layout_marginStart="53dp"
             android:layout_marginTop="123dp"
+            android:layout_marginEnd="54dp"
+            android:layout_marginBottom="457dp"
             android:contentDescription="@string/travel_logo_desc"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/travel_logo" />
 
-    <Button
-            android:id="@+id/loginBtn"
-            android:layout_width="200dp"
-            android:layout_height="100dp"
-            android:layout_marginStart="105dp"
-            android:layout_marginTop="436dp"
-            android:layout_marginEnd="106dp"
-            android:layout_marginBottom="195dp"
-            android:backgroundTint="@color/dark_blue"
-            android:onClick="loginActivity"
-            android:text="@string/l_but"
-            android:textSize="22sp"
+    <EditText
+            android:id="@+id/editTextTextPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="485dp"
+            android:layout_marginEnd="101dp"
+            android:layout_marginBottom="201dp"
+            android:ems="10"
+            android:hint="@string/pwd"
+            android:autofillHints="Password..."
+            android:inputType="textPassword"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-            android:id="@+id/signUpBtn"
-            android:layout_width="200dp"
-            android:layout_height="100dp"
-            android:backgroundTint="@color/light_blue"
-            android:onClick="signUpActivity"
-            android:text="@string/s_but"
-            android:textSize="22sp"
+    <EditText
+            android:id="@+id/editTextText"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="429dp"
+            android:layout_marginEnd="101dp"
+            android:layout_marginBottom="258dp"
+            android:ems="10"
+            android:hint="@string/username"
+            android:autofillHints="Username..."
+            android:inputType="text"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.884" />
-
-    <androidx.constraintlayout.widget.Guideline
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
+            app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
