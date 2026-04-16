@@ -1,11 +1,11 @@
-//CM0415026
+package com.example.softwaredesignproject2android;//CM0415026
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
-import androidx.room.PrimaryKey;
 import androidx.room.ForeignKey;
+import androidx.room.PrimaryKey;
 
 @Entity(tableName = "Trips",
-        primaryKeys = {"username","tripName"},
         foreignKeys = {
             @ForeignKey(entity = USER.class,
                     parentColumns = "username",
@@ -13,9 +13,14 @@ import androidx.room.ForeignKey;
             }
         )
 public class TRIPS{
+    public TRIPS(){
+    }
 
-    //primary keys
+    @PrimaryKey(autoGenerate = true)
+    public int uniqueID;
+    @NonNull
     public String username;
+    @NonNull
     public String tripName;
 
     public int startDate;

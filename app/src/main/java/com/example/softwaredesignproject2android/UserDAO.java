@@ -1,4 +1,4 @@
-//CM415026
+package com.example.softwaredesignproject2android;//CM415026
 
 import androidx.room.Dao;
 import androidx.room.Insert;
@@ -10,10 +10,10 @@ import java.util.List;
 public interface UserDAO {
 
     //FOR USERS
-    @Insert(onConflict = OnConflictStrategy.ABORT)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insertUser(USER user);
     @Query("SELECT * FROM Users WHERE username = :loggedInUser")
-    String getLoggedInUser(String loggedInUser); //use for local>database>local transfer
+    USER getLoggedInUser(String loggedInUser); //use for local>database>local transfer
     @Query("SELECT * FROM Users")
     List<USER> getAllUsers(); //lists all users admin only
     @Query("DELETE FROM Users WHERE username = :username")
