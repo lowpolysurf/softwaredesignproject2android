@@ -2,6 +2,7 @@
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+import androidx.room.ForeignKey;
 
 @Entity(tableName = "Users")
 public class USER{

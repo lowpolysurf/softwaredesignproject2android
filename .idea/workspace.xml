@@ -10,11 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f18d0d3-0e83-469a-842f-759a98128f0f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/USER.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/TRIPS.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/TripsDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/TravelDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/TravelDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/TravelDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/USER.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/USER.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/UserDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

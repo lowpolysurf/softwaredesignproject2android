@@ -8,12 +8,16 @@ import java.util.List;
 
 @Dao
 public interface UserDAO {
+
+    //FOR USERS
     @Insert(onConflict = OnConflictStrategy.ABORT)
-    void insert(USER user);
-
-    @Query("SELECT * FROM users")
-    List<USER> getAllUsers();
-
-    @Query("DELETE FROM users")
-    void deleteAll();
+    void insertUser(USER user);
+    @Query("SELECT * FROM Users WHERE username = :loggedInUser")
+    String getLoggedInUser(String loggedInUser); //use for local>database>local transfer
+    @Query("SELECT * FROM Users")
+    List<USER> getAllUsers(); //lists all users admin only
+    @Query("DELETE FROM Users WHERE username = :username")
+    void deleteUser(String username); //DELETE SINGLE USER ADMIN ONLY
+    @Query("DELETE FROM Users")
+    void deleteAll(); //DELETE ALL USERS DO NOT USE DEV SIDE ONLY
 }
