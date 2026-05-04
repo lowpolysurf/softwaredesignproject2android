@@ -12,6 +12,9 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.Softwaredesignproject2android">
         <activity
+                android:name=".UserLandingPage"
+                android:exported="false" />
+        <activity
                 android:name=".SignUpActivity"
                 android:exported="false" />
         <activity
