@@ -23,6 +23,16 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         db = TravelDatabase.getInstance(this);
+        try { // hardcoded admin
+            USER admin = db.userDAO().getLoggedInUser("admin");
+
+            if (admin == null) {
+                USER newAdmin = new USER("admin", "admin123", 1);
+                db.userDAO().insertUser(newAdmin);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -41,8 +51,11 @@ public class LoginActivity extends AppCompatActivity {
         USER user = db.userDAO().getLoggedInUser(username);
 
         if (user != null && user.password.equals(password)) {
-            Intent intent = new Intent(this, TripsActivity.class);
+            Intent intent = new Intent(this, UserLandingPage.class);
             intent.putExtra("username", username);
+            // convert int → boolean
+            boolean isAdmin = user.isAdmin == 1;
+            intent.putExtra("isAdmin", isAdmin);
             startActivity(intent);
         } else {
             Toast.makeText(this, "Invalid Login", Toast.LENGTH_SHORT).show();

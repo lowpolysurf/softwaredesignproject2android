@@ -50,6 +50,15 @@
                 android:gravity="center"
                 android:text="@string/new_trip"
                 android:textColor="@color/dark_blue" />
+
+        <Button
+                android:id="@+id/toolsBtn"
+                android:layout_width="150dp"
+                android:layout_height="70dp"
+                android:backgroundTint="@color/light_blue"
+                android:text="@string/tools"
+                android:textColor="@color/dark_blue"
+                android:layout_marginStart="16dp"/>
     </LinearLayout>
 
     <!--Trips-->

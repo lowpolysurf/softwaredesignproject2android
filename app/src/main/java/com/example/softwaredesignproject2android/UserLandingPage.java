@@ -1,5 +1,6 @@
 package com.example.softwaredesignproject2android;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -33,16 +34,20 @@ public class UserLandingPage extends AppCompatActivity {
     TravelDatabase db;
     String username;
 
-    Button newTripBtn, saveTripBtn;
+    Button newTripBtn, saveTripBtn, toolsBtn;
     LinearLayout addTripPanel;
 
     EditText inputDate, inputLocation;
+
+    // admin variables
+    boolean isAdmin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_user_landing_page);
+        isAdmin = getIntent().getBooleanExtra("isAdmin", false); // for admin
 
         // DB + user
         db = TravelDatabase.getInstance(this);
@@ -52,11 +57,18 @@ public class UserLandingPage extends AppCompatActivity {
         tripRecyclerView = findViewById(R.id.tripRecyclerView);
         newTripBtn = findViewById(R.id.newTripBtn);
         saveTripBtn = findViewById(R.id.saveTripBtn);
+        toolsBtn = findViewById(R.id.toolsBtn); // admin
 
         addTripPanel = findViewById(R.id.addTripPanel);
 
         inputDate = findViewById(R.id.inputDate);
         inputLocation = findViewById(R.id.inputLocation);
+
+        if (isAdmin) {
+            toolsBtn.setVisibility(View.VISIBLE);
+        } else {
+            toolsBtn.setVisibility(View.GONE);
+        }
 
         // RecyclerView setup
         tripRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -86,6 +98,13 @@ public class UserLandingPage extends AppCompatActivity {
             loadTrips();
 
             addTripPanel.setVisibility(View.GONE);
+        });
+
+        // admin
+        toolsBtn.setOnClickListener(v -> {
+            // This will take admin to tool page
+            Intent intent = new Intent(UserLandingPage.this, ToolsActivity.class);
+            startActivity(intent);
         });
     }
 
