@@ -1,108 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/main"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.softwaredesignproject2android.LoginActivity">
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".LoginActivity">
+        android:fillViewport="true">
 
-    <Button
-            android:id="@+id/loginBtn2"
-            android:layout_width="200dp"
-            android:layout_height="100dp"
-            android:layout_marginStart="105dp"
-            android:layout_marginTop="552dp"
-            android:layout_marginEnd="106dp"
-            android:layout_marginBottom="79dp"
-            android:backgroundTint="@color/dark_blue"
-            android:text="@string/l_but"
-            android:textSize="22sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="24dp">
 
-    <TextView
-            android:id="@+id/textView"
-            android:layout_width="217dp"
-            android:layout_height="52dp"
-            android:gravity="center"
-            android:text="@string/tracker"
-            android:textColor="@color/dark_blue"
-            android:textSize="50sp"
-            android:textStyle="bold|italic"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.721"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.403"
-            tools:ignore="TextSizeCheck" />
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/travel"
+                android:textColor="@color/light_blue"
+                android:textSize="50sp"
+                android:textStyle="bold|italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="16dp" />
 
-    <TextView
-            android:id="@+id/textView3"
-            android:layout_width="217dp"
-            android:layout_height="52dp"
-            android:gravity="center"
-            android:text="@string/travel"
-            android:textColor="@color/light_blue"
-            android:textSize="50sp"
-            android:textStyle="bold|italic"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.082"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.088"
-            tools:ignore="TextSizeCheck" />
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="280dp"
+                android:layout_height="140dp"
+                android:contentDescription="@string/travel_logo_desc"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView3"
+                app:srcCompat="@drawable/travel_logo" />
 
-    <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="304dp"
-            android:layout_height="151dp"
-            android:layout_marginStart="53dp"
-            android:layout_marginTop="123dp"
-            android:layout_marginEnd="54dp"
-            android:layout_marginBottom="457dp"
-            android:contentDescription="@string/travel_logo_desc"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/travel_logo" />
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tracker"
+                android:textColor="@color/dark_blue"
+                android:textSize="50sp"
+                android:textStyle="bold|italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
-    <EditText
-            android:id="@+id/editTextTextPassword"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="485dp"
-            android:layout_marginEnd="101dp"
-            android:layout_marginBottom="201dp"
-            android:ems="10"
-            android:hint="@string/pwd"
-            android:autofillHints="Password..."
-            android:inputType="textPassword"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <EditText
+                android:id="@+id/editTextText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:autofillHints="username"
+                android:hint="@string/username"
+                android:inputType="text"
+                android:minHeight="48dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView"
+                app:layout_constraintWidth_max="300dp" />
 
-    <EditText
-            android:id="@+id/editTextText"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="429dp"
-            android:layout_marginEnd="101dp"
-            android:layout_marginBottom="258dp"
-            android:ems="10"
-            android:hint="@string/username"
-            android:autofillHints="Username..."
-            android:inputType="text"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <EditText
+                android:id="@+id/editTextTextPassword"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:autofillHints="password"
+                android:hint="@string/pwd"
+                android:inputType="textPassword"
+                android:minHeight="48dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextText"
+                app:layout_constraintWidth_max="300dp" />
+
+            <Button
+                android:id="@+id/loginBtn2"
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="32dp"
+                android:backgroundTint="@color/dark_blue"
+                android:onClick="loginUser"
+                android:text="@string/l_but"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

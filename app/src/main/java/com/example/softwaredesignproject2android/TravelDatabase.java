@@ -1,12 +1,12 @@
-package com.example.softwaredesignproject2android;//CM415026
+package com.example.softwaredesignproject2android; //CM415026
 
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import android.content.Context;
 
-@Database(entities = {USER.class, TRIPS.class, LEGS.class}, version = 1)
-public abstract class TravelDatabase extends RoomDatabase{
+@Database(entities = {USER.class, TRIPS.class, LEGS.class}, version = 1, exportSchema = false)
+public abstract class TravelDatabase extends RoomDatabase {
 
     public abstract UserDAO userDAO();
     public abstract TripsDAO tripsDAO();
@@ -14,13 +14,16 @@ public abstract class TravelDatabase extends RoomDatabase{
 
     private static TravelDatabase INSTANCE;
 
-    public static TravelDatabase getInstance(Context context){
-        if(INSTANCE == null){
+    public static synchronized TravelDatabase getInstance(Context context) {
+        if (INSTANCE == null) {
             INSTANCE = Room.databaseBuilder(
-                    context.getApplicationContext(),
-                    TravelDatabase.class,
-                    "travel_database"
-            ).allowMainThreadQueries().build();
+                            context.getApplicationContext(),
+                            TravelDatabase.class,
+                            "travel_database"
+                    )
+                    .allowMainThreadQueries() // OK for class (not production)
+                    .fallbackToDestructiveMigration() // prevents crashes on schema changes
+                    .build();
         }
         return INSTANCE;
     }
