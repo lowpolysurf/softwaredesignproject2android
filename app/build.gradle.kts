@@ -37,6 +37,8 @@ android {
 }
 
 dependencies {
+    implementation(libs.ext.junit)
+    implementation(libs.monitor)
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
     val room_version = "2.8.4"
