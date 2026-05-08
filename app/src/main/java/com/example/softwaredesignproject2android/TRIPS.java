@@ -23,6 +23,6 @@ public class TRIPS{
     @NonNull
     public String tripName;
 
-    public int startDate;
-    public int endDate;
+    public String startDate;
+    public String endDate;
 }
