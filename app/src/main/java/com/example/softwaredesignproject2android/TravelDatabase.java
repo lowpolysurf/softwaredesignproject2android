@@ -1,8 +1,3 @@
-
-
-
-
-
 package com.example.softwaredesignproject2android; //CM415026
 
 import android.content.Context;
@@ -47,7 +42,6 @@ public abstract class TravelDatabase extends RoomDatabase {
                             )
                             .allowMainThreadQueries()
                             .fallbackToDestructiveMigration()
-                            .addCallback(databaseCallback)
                             .build();
                 }
             }
@@ -55,48 +49,4 @@ public abstract class TravelDatabase extends RoomDatabase {
 
         return INSTANCE;
     }
-
-    private static final Callback databaseCallback =
-            new Callback() {
-
-<<<<<<< HEAD
-            Executors.newSingleThreadExecutor().execute(() -> {
-
-                TravelDatabase database = INSTANCE;
-
-                if (database != null){
-                    UserDAO userDAO = database.userDAO();
-
-                    USER test = new USER("testuser1", "testuser1", 0);
-                    USER admin = new USER("admin2", "admin2", 1);
-
-                    userDAO.insertUser(test);
-                    userDAO.insertUser(admin);
-                }
-            });
-        }
-    };
 }
-=======
-                @Override
-                public void onCreate(@NonNull SupportSQLiteDatabase db) {
-
-                    super.onCreate(db);
-
-                    Executors.newSingleThreadExecutor().execute(() -> {
-
-                        UserDAO userDAO = INSTANCE.userDAO();
-
-                        USER testUser =
-                                new USER("testuser1", "testuser1", 0);
-
-                        USER adminUser =
-                                new USER("admin2", "admin2", 1);
-
-                        userDAO.insertUser(testUser);
-                        userDAO.insertUser(adminUser);
-                    });
-                }
-            };
-}
->>>>>>> main
