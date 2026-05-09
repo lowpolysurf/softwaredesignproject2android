@@ -43,8 +43,8 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
         TRIPS trip = tripList.get(position);
+        android.util.Log.d("TripAdapter", "Binding trip: " + trip.tripName + " at position: " + position);
 
         holder.tripNameText.setText(trip.tripName);
         holder.dateText.setText(

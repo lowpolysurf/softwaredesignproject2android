@@ -12,16 +12,19 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.Softwaredesignproject2android">
         <activity
-                android:name=".ToolsActivity"
-                android:exported="false" />
-        <activity
-                android:name=".UserLandingPage"
+                android:name=".TripsActivity"
                 android:exported="false" />
         <activity
                 android:name=".SignUpActivity"
                 android:exported="false" />
         <activity
                 android:name=".LoginActivity"
+                android:exported="false" />
+        <activity
+                android:name=".UserLandingPage"
+                android:exported="false" />
+        <activity
+                android:name=".ToolsActivity"
                 android:exported="false" />
         <activity
                 android:name=".MainActivity"

@@ -2,10 +2,12 @@ package com.example.softwaredesignproject2android;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -37,7 +39,7 @@ public class UserLandingPage extends AppCompatActivity {
     Button newTripBtn, saveTripBtn, toolsBtn;
     LinearLayout addTripPanel;
 
-    EditText inputDate, inputLocation;
+    EditText inputStartDate, inputEndDate, inputLocation;
 
     // admin variables
     boolean isAdmin;
@@ -61,8 +63,12 @@ public class UserLandingPage extends AppCompatActivity {
 
         addTripPanel = findViewById(R.id.addTripPanel);
 
-        inputDate = findViewById(R.id.inputDate);
+        inputStartDate = findViewById(R.id.inputStartDate);
+        inputEndDate = findViewById(R.id.inputEndDate);
         inputLocation = findViewById(R.id.inputLocation);
+
+        TextView welcomeText = findViewById(R.id.editText);
+        welcomeText.setText("Welcome " + username);
 
         if (isAdmin) {
             toolsBtn.setVisibility(View.VISIBLE);
@@ -86,18 +92,46 @@ public class UserLandingPage extends AppCompatActivity {
 
         // save trip
         saveTripBtn.setOnClickListener(v -> {
+            Log.d("UserLandingPage", "Save Trip button clicked");
+
+            String location = inputLocation.getText().toString().trim();
+            String startDate = inputStartDate.getText().toString().trim();
+            String endDate = inputEndDate.getText().toString().trim();
+
+            if (location.isEmpty() || startDate.isEmpty() || endDate.isEmpty()) {
+                Log.w("UserLandingPage", "One or more fields are empty");
+                android.widget.Toast.makeText(this, "Please fill in all fields", android.widget.Toast.LENGTH_SHORT).show();
+                return;
+            }
 
             TRIPS trip = new TRIPS();
             trip.username = username;
-            trip.tripName = inputLocation.getText().toString();
-            trip.startDate = inputDate.getText().toString();
-            trip.endDate = inputDate.getText().toString();
+            trip.tripName = location;
+            trip.startDate = startDate;
+            trip.endDate = endDate;
 
-            db.tripsDAO().insertTrip(trip);
+            Log.d("UserLandingPage", "Saving trip: " + trip.tripName + " for user: " + trip.username);
 
-            loadTrips();
+            new Thread(() -> {
+                try {
+                    db.tripsDAO().insertTrip(trip);
+                    Log.d("UserLandingPage", "Trip inserted successfully");
 
-            addTripPanel.setVisibility(View.GONE);
+                    runOnUiThread(() -> {
+                        android.widget.Toast.makeText(this, "Trip Saved!", android.widget.Toast.LENGTH_SHORT).show();
+                        loadTrips();
+                        inputLocation.setText("");
+                        inputStartDate.setText("");
+                        inputEndDate.setText("");
+                        addTripPanel.setVisibility(View.GONE);
+                    });
+                } catch (Exception e) {
+                    Log.e("UserLandingPage", "Error inserting trip", e);
+                    runOnUiThread(() -> {
+                        android.widget.Toast.makeText(this, "Error saving trip", android.widget.Toast.LENGTH_SHORT).show();
+                    });
+                }
+            }).start();
         });
 
         // admin
@@ -109,13 +143,19 @@ public class UserLandingPage extends AppCompatActivity {
     }
 
     private void loadTrips() {
-        tripList = db.tripsDAO().getUserTrips(username);
+        Log.d("UserLandingPage", "Loading trips for user: " + username);
+        new Thread(() -> {
+            tripList = db.tripsDAO().getUserTrips(username);
 
-        if (tripList == null) {
-            tripList = new ArrayList<>();
-        }
+            if (tripList == null) {
+                tripList = new ArrayList<>();
+            }
+            Log.d("UserLandingPage", "Loaded " + tripList.size() + " trips");
 
-        adapter = new TripAdapter(tripList);
-        tripRecyclerView.setAdapter(adapter);
+            runOnUiThread(() -> {
+                adapter = new TripAdapter(tripList);
+                tripRecyclerView.setAdapter(adapter);
+            });
+        }).start();
     }
 }
