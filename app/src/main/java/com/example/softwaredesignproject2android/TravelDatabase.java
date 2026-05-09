@@ -35,13 +35,18 @@ public abstract class TravelDatabase extends RoomDatabase{
             super.onCreate(db);
 
             Executors.newSingleThreadExecutor().execute(() -> {
-                UserDAO userDAO = INSTANCE.userDAO();
 
-                USER test = new USER("testuser1", "testuser1", 0);
-                USER admin = new USER("admin2", "admin2", 1);
+                TravelDatabase database = INSTANCE;
 
-                userDAO.insertUser(test);
-                userDAO.insertUser(admin);
+                if (database != null){
+                    UserDAO userDAO = database.userDAO();
+
+                    USER test = new USER("testuser1", "testuser1", 0);
+                    USER admin = new USER("admin2", "admin2", 1);
+
+                    userDAO.insertUser(test);
+                    userDAO.insertUser(admin);
+                }
             });
         }
     };
