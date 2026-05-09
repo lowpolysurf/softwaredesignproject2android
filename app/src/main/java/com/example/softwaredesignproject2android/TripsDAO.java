@@ -13,12 +13,12 @@ public interface TripsDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertTrip(TRIPS trip);
 
-    @Query("SELECT * FROM TRIPS WHERE username = :loggedInUser ORDER BY startDate DESC")
-    List<TRIPS> getLoggedInUserTrips(String loggedInUser);
+    @Query("SELECT * FROM Trips WHERE username = :loggedInUser ORDER BY startDate DESC")
+    List<TRIPS> getUserTrips(String loggedInUser);
 
-    @Query("DELETE FROM TRIPS WHERE username = :loggedInUser AND tripName = :tripName")
+    @Query("DELETE FROM Trips WHERE username = :loggedInUser AND tripName = :tripName")
     void deleteTrip(String loggedInUser, String tripName);
 
-    @Query("DELETE FROM TRIPS")
+    @Query("DELETE FROM Trips")
     void deleteAll();
 }

@@ -29,7 +29,7 @@ public class TripsActivity extends AppCompatActivity {
     }
 
     private void loadTrips() {
-        List<TRIPS> trips = db.tripsDAO().getLoggedInUserTrips(username);
+        List<TRIPS> trips = db.tripsDAO().getUserTrips(username);
 
 
         StringBuilder builder = new StringBuilder();
