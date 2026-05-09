@@ -21,6 +21,12 @@
                 android:name=".LoginActivity"
                 android:exported="false" />
         <activity
+                android:name=".UserLandingPage"
+                android:exported="false" />
+        <activity
+                android:name=".ToolsActivity"
+                android:exported="false" />
+        <activity
                 android:name=".MainActivity"
                 android:exported="true">
             <intent-filter>

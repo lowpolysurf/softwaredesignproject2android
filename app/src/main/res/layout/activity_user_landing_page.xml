@@ -70,25 +70,34 @@
             android:orientation="vertical"
             android:padding="16dp"
             android:visibility="gone"
+            android:elevation="4dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/topBar">
 
         <EditText
-                android:id="@+id/inputDate"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Date range" />
-
-        <EditText
                 android:id="@+id/inputLocation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Location" />
+                android:hint="Trip Name / Location" />
+
+        <EditText
+                android:id="@+id/inputStartDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Start Date (e.g. 2023-10-01)"
+                android:inputType="date" />
+
+        <EditText
+                android:id="@+id/inputEndDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="End Date (e.g. 2023-10-10)"
+                android:inputType="date" />
 
         <Button
                 android:id="@+id/saveTripBtn"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Save Trip" />
     </LinearLayout>
@@ -101,6 +110,6 @@
             app:layout_constraintBottom_toTopOf="@id/bottomBar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/topBar" />
+            app:layout_constraintTop_toBottomOf="@id/addTripPanel" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
