@@ -24,10 +24,20 @@ public class LoginActivity extends AppCompatActivity {
 
         db = TravelDatabase.getInstance(this);
         try { // hardcoded admin
-            USER admin = db.userDAO().getLoggedInUser("admin");
+            USER admin = db.userDAO().getLoggedInUser("admin2");
 
             if (admin == null) {
-                USER newAdmin = new USER("admin", "admin123", 1);
+                USER newAdmin = new USER("admin2", "admin2", 1);
+                db.userDAO().insertUser(newAdmin);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try { // hardcoded admin
+            USER admin = db.userDAO().getLoggedInUser("testuser1");
+
+            if (admin == null) {
+                USER newAdmin = new USER("testuser1", "testuser1", 0);
                 db.userDAO().insertUser(newAdmin);
             }
         } catch (Exception e) {
